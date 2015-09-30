@@ -1,0 +1,13 @@
+struct VSParticleIn
+{
+	float3 pos              : POSITION;         //position of the particle
+	float3 vel              : NORMAL;           //velocity of the particle
+	float  Timer : TIMER;            //timer for the particle
+	uint   Type             : TYPE;             //particle type
+};
+
+
+[maxvertexcount(1)] void so_skin_gs(point VSParticleIn input[1], inout PointStream<VSParticleIn> stream) {
+  stream.Append(input[0]);
+}
+
